@@ -1,0 +1,260 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 1rem;
+}
+
+.navList {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.logo {
+  margin-right: auto;
+  flex: 0 0 auto;
+}
+
+.hamburger {
+  flex: 0 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(255, 140, 0, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.logoImage {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: 2px solid rgba(255, 140, 0, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+
+  .hamburger[aria-expanded='true'] & {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  flex-wrap: wrap;
+
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background-color: rgba(26, 26, 46, 0.98);
+    backdrop-filter: blur(15px);
+    padding: 4rem 1rem 2rem;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-height: 100vh;
+    overflow-y: auto;
+
+    &.navListOpen {
+      transform: translateX(0);
+    }
+  }
+}
+
+.navLink {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  white-space: nowrap;
+
+  &:hover {
+    color: #ffffff;
+    background-color: rgba(255, 140, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(255, 140, 0, 0.5);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.125rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(255, 140, 0, 0.2);
+      padding-right: 1.5rem;
+    }
+  }
+}
+
+// Small Mobile
+@media (min-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .logoImage {
+    height: 65px;
+  }
+
+  .navList {
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 0.9375rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+// Tablet
+@media (min-width: 768px) {
+  .nav {
+    padding: 1.25rem 0;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  .logoImage {
+    height: 75px;
+  }
+
+  .navList {
+    gap: 2.5rem;
+  }
+
+  .navLink {
+    font-size: 1.125rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+// Desktop
+@media (min-width: 1024px) {
+  .logoImage {
+    height: 85px;
+  }
+
+  .navList {
+    gap: 3rem;
+  }
+
+  .navLink {
+    font-size: 1.125rem;
+  }
+}
+

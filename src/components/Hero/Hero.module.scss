@@ -1,0 +1,179 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem 2rem;
+  background: linear-gradient(
+      135deg,
+      rgba(26, 26, 46, 0.85) 0%,
+      rgba(22, 33, 62, 0.85) 50%,
+      rgba(15, 52, 96, 0.85) 100%
+    ),
+    url('/pics/basketball.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: #ffffff;
+  box-sizing: border-box;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 46, 0.6) 0%,
+      rgba(22, 33, 62, 0.6) 50%,
+      rgba(15, 52, 96, 0.6) 100%
+    );
+    z-index: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out;
+  padding: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  word-wrap: break-word;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 100%;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  padding: 0 0.5rem;
+}
+
+.ctaWrapper {
+  margin-top: 0.5rem;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  width: auto;
+  min-width: 150px;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+  }
+
+  &:focus {
+    outline: 3px solid rgba(255, 140, 0, 0.5);
+    outline-offset: 3px;
+  }
+}
+
+// Small Mobile
+@media (min-width: 480px) {
+  .hero {
+    padding: 5.5rem 1.5rem 2rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2.25rem;
+    font-size: 1.0625rem;
+  }
+}
+
+// Tablet
+@media (min-width: 768px) {
+  .hero {
+    padding: 6rem 2rem 3rem;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .heading {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.625rem;
+    padding: 0;
+  }
+
+  .ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+// Desktop
+@media (min-width: 1024px) {
+  .hero {
+    padding: 7rem 2rem 4rem;
+    background-attachment: fixed;
+  }
+
+  .heading {
+    font-size: 5.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.75rem;
+  }
+}
+
